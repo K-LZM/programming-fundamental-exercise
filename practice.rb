@@ -27,3 +27,22 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+wallet = {nil => 0,"ben" => 0, "brian" => 0, "evan" => 0, "anthony" => 0}
+
+for record in blockchain
+  
+  sender = record["from_user"]
+  reciever = record["to_user"]
+  amount = record["amount"]
+
+  wallet[sender] = wallet[sender] - amount
+  wallet[reciever] = wallet[reciever] + amount
+  
+end
+
+wallet.each do |key, value|
+  if key != nil
+    puts "#{key.capitalize}'s KelloggCoin balance is #{value}"
+  end
+end
